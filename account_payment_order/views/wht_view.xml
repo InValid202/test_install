@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_wht_inherit_form" model="ir.ui.view">
+            <field name="name">tr.wht.form</field>
+            <field name="model">tr.wht</field>
+            <field name="inherit_id" ref="tr_wht.tr_wht_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_view_payment_order"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        attrs="{'invisible': [('payment_order_count', '=', 0)]}">
+                        <field name="payment_order_count" widget="statinfo" string="Payments"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
